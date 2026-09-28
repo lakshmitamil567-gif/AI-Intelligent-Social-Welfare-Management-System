@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Welfare Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f7fc;
+            color: #1f2937;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8);
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        .header .icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 17px;
+            opacity: 0.95;
+        }
+
+        /* MAIN */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .welcome h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #64748b;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            border-top: 4px solid #2563eb;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(37,99,235,0.20);
+        }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin: 8px 0;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #64748b;
+            min-height: 45px;
+            line-height: 1.5;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* AI SECTION */
+        .ai-section {
+            margin-top: 35px;
+            padding: 35px 25px;
+            border-radius: 18px;
+            text-align: center;
+            background: linear-gradient(135deg, #4f46e5, #2563eb, #0ea5e9);
+            color: white;
+            box-shadow: 0 8px 25px rgba(37,99,235,0.25);
+        }
+
+        .ai-icon {
+            font-size: 45px;
+        }
+
+        .ai-section h2 {
+            margin: 10px 0;
+            font-size: 27px;
+        }
+
+        .ai-section p {
+            margin-bottom: 20px;
+        }
+
+        .ai-btn {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 12px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .ai-btn:hover {
+            background: #e0f2fe;
+            transform: scale(1.05);
+        }
+
+        /* HOW IT WORKS */
+        .how {
+            margin-top: 45px;
+            text-align: center;
+        }
+
+        .how h2 {
+            font-size: 25px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .step {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin: auto;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #64748b;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="icon">🌐</div>
+
+        <h1>Welfare Management System</h1>
+
+        <p>Manage Welfare Schemes Easily & Efficiently</p>
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- WELCOME -->
+        <div class="welcome">
+            <h2>Welcome to Welfare Management System</h2>
+
+            <p>
+                A simple platform to manage beneficiaries,
+                welfare schemes and registrations.
+            </p>
+        </div>
+
+
+        <!-- MAIN CARDS -->
+        <div class="cards">
+
+            <!-- BENEFICIARIES -->
+            <div class="card">
+
+                <div class="card-icon">👤</div>
+
+                <h3>Beneficiaries</h3>
+
+                <p>
+                    Manage and view registered
+                    beneficiary details.
+                </p>
+
+                <a href="/beneficiaries" class="btn">
+                    View Beneficiaries
+                </a>
+
+            </div>
+
+
+            <!-- WELFARE SCHEMES -->
+            <div class="card">
+
+                <div class="card-icon">📋</div>
+
+                <h3>Welfare Schemes</h3>
+
+                <p>
+                    View available government
+                    welfare schemes.
+                </p>
+
+                <a href="/schemes" class="btn">
+                    View Schemes
+                </a>
+
+            </div>
+
+
+            <!-- REGISTRATION -->
+            <div class="card">
+
+                <div class="card-icon">📝</div>
+
+                <h3>Registration</h3>
+
+                <p>
+                    Register beneficiaries for
+                    suitable welfare schemes.
+                </p>
+
+                <a href="/register" class="btn">
+                    Register Now
+                </a>
+
+            </div>
+
+
+            <!-- DASHBOARD -->
+            <div class="card">
+
+                <div class="card-icon">📊</div>
+
+                <h3>Dashboard</h3>
+
+                <p>
+                    View system statistics and
+                    welfare information.
+                </p>
+
+                <a href="/dashboard" class="btn">
+                    Open Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- AI RECOMMENDATION -->
+        <div class="ai-section">
+
+            <div class="ai-icon">🤖</div>
+
+            <h2>AI Welfare Recommendation</h2>
+
+            <p>
+                Find a suitable welfare scheme
+                based on age, gender and income.
+            </p>
+
+            <a href="/recommend" class="ai-btn">
+                ✨ Get AI Recommendation
+            </a>
+
+        </div>
+
+
+        <!-- HOW IT WORKS -->
+        <div class="how">
+
+            <h2>💡 How It Works</h2>
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">1</div>
+
+                    <h3>Register</h3>
+
+                    <p>
+                        Enter beneficiary details
+                        and register for a scheme.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">2</div>
+
+                    <h3>Find Schemes</h3>
+
+                    <p>
+                        Explore available welfare
+                        schemes in the system.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">3</div>
+
+                    <h3>Get Recommendation</h3>
+
+                    <p>
+                        Use AI recommendation to
+                        find a suitable welfare scheme.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Welfare Management System
+
+        <br>
+
+        <small>Smart • Simple • Efficient</small>
+
+    </footer>
+
+</body>
+</html>
